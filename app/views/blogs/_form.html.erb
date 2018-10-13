@@ -1,0 +1,21 @@
+<h1><%= page_title %>ページ</h1>
+<%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.text_field :title, placeholder: "タイトル" %>
+  <%= form.text_field :content, placeholder: "内容" %>
+
+  <%= form.submit "送信" %>
+<% end %>
+
+<%= link_to 'ブログ一覧', blogs_path %>
