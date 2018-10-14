@@ -2,19 +2,20 @@
 
 <%= notice %>
 
-
 <table>
   <tr>
     <th>タイトル</th>
     <th>内容</th>
     <th>投稿日時</th>
+    <th>更新日時</th>
   </tr>
 
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-    <td><%= blog.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+    <td><%= blog.created_at.strftime('%m月%d日 %H:%M') %></td>
+    <td><%= blog.updated_at.strftime('%m月%d日 %H:%M') %></td>
     <td><%= link_to 'ブログ詳細へ', blog_path(blog.id) %></td>
     <td><%= link_to 'ブログ編集', edit_blog_path(blog.id) %></td>
     <td><%= link_to '削除', blog_path(blog.id), method: :delete,data: { confirm: '本当に削除しますか？' } %></td>
