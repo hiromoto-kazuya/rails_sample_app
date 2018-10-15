@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   resources :blogs do
     collection do
       post :confirm
@@ -7,4 +8,7 @@ Rails.application.routes.draw do
       patch :edit_confirm
     end
   end
+
+  resources :users, only: [:new, :create, :show]
+  resources :sessions, only: [:new, :create, :destroy]
 end
