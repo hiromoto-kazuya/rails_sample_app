@@ -33,6 +33,11 @@ class BlogsController < ApplicationController
   def edit
   end
 
+  def edit_confirm
+    @blog = Blog.find(params[:id])
+    @blog.title,@blog.content = blog_params[:title], blog_params[:content]
+  end
+
   def update
     if @blog.update(blog_params)
       redirect_to blogs_path, notice: "編集が完了しました"
