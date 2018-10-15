@@ -35,8 +35,7 @@ class BlogsController < ApplicationController
 
   def edit_confirm
     @blog = Blog.find(params[:id])
-    @edit_blog = Blog.new(blog_params)
-    @blog.title,@blog.content = @edit_blog.title,@edit_blog.content
+    @blog.title,@blog.content = blog_params[:title], blog_params[:content]
   end
 
   def update
