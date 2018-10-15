@@ -1,9 +1,8 @@
 <h1>ブログ一覧</h1>
 
-<%= notice %>
-
 <table>
   <tr>
+    <th>投稿者</th>
     <th>タイトル</th>
     <th>内容</th>
     <th>投稿日時</th>
@@ -12,6 +11,7 @@
 
 <% @blogs.each do |blog| %>
   <tr>
+    <td><%= blog.user.name %></td>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <td><%= blog.created_at.strftime('%m月%d日 %H:%M') %></td>
