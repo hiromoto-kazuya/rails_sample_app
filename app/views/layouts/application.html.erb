@@ -11,8 +11,11 @@
 
   <body>
     <% if logged_in? %>
+      <%= link_to "Index", blogs_path %>
       <%= link_to "Profile", user_path(current_user.id) %>
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+      <%= link_to "New Post", new_blog_path %>
+      <%= link_to "Contact", new_contact_path %>
     <% else %>
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Login", new_session_path %>
