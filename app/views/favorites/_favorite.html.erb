@@ -1,0 +1,9 @@
+<% if favorite.present? && favorite.persisted? %>
+  <%= link_to favorite_path(id: favorite.id), method: :delete, remote: true do %>
+    お気に入り解除
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(blog_id: blog), method: :post, remote: true do %>
+    お気に入り
+  <% end %>
+<% end %>
