@@ -1,0 +1,17 @@
+<p>
+  <strong>お名前:</strong>
+  <%= @contact.name %>
+</p>
+
+<p>
+  <strong>メールアドレス:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>お問い合わせ内容:</strong>
+  <%= @contact.content %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
