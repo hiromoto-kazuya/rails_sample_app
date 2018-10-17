@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -17,9 +19,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  private
+  def edit
+  end
 
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: "アカウントを編集しました"
+    else
+      render 'new'
+    end
+  end
+
+  private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to blogs_path, notice: "権限がありません"
+    end
   end
 end
