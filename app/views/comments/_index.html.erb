@@ -1,0 +1,10 @@
+<h3>コメント一覧</h3>
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p><%= comment.content %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

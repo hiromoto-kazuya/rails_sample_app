@@ -13,3 +13,9 @@
 <div id = "favorite_area">
   <%= render partial: 'favorites/favorite', locals: { favorite: @favorite, blog: @blog } %>
 </div>
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+</div>
+
+<%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
