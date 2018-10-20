@@ -3,7 +3,7 @@
 <% comments.each do |comment| %>
   <% if comment.id.present? %>
     <p>
-      <%= comment.user.name %>
+      <%= link_to comment.user.name, user_path(comment.user.id) %>
       <%= comment.content %>
     </p>
   <% end %>
