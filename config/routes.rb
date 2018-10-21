@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       patch :edit_confirm
     end
+    resources :comments
   end
 
   resources :users, only: [:new, :create, :show, :edit, :update]

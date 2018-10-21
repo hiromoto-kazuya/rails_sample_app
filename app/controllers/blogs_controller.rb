@@ -30,6 +30,8 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @comments = @blog.comments
+    @comment = @blog.comments.build
   end
 
   def edit

@@ -11,7 +11,9 @@
 
 <% @blogs.each do |blog| %>
   <tr>
-    <td><%= blog.user.name %></td>
+    <td>
+      <%= link_to blog.user.name, user_path(blog.user_id) %>
+    </td>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <td><%= blog.created_at.strftime('%m月%d日 %H:%M') %></td>
