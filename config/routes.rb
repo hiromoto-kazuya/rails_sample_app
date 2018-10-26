@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root "blogs#index"
   resources :blogs do
     collection do
@@ -10,10 +12,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :users, only: [:index, :new, :create, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :contacts
+  resources :relationships, only: [:create, :destroy]
 
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
